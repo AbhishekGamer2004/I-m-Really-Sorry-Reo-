@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I'm Sorry, Reo Ghosh</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff0f5;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: floatUp 8s infinite ease-in;
+      opacity: 0.6;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% { bottom: -10px; opacity: 0.6; }
+      100% { bottom: 100vh; opacity: 0; }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      max-width: 500px;
+    }
+
+    h1 {
+      color: #e91e63;
+      font-size: 36px;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    p {
+      font-size: 18px;
+      color: #444;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-size: 16px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #c2185b;
+    }
+
+    .photo-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    .photo-gallery img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border: 3px solid #e91e63;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Romantic Background Music -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Floating Hearts -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+    setInterval(createHeart, 300);
+  </script>
+
+  <!-- Apology Card -->
+  <div class="container">
+    <div class="card">
+      <h1>I’m Really Sorry, Reo Ghosh 💔</h1>
+
+      <div class="photo-gallery">
+        <img src="C:\Users\Abhishek\Desktop\sorry\reo1.jpg.jpg" alt="Reo smiling">
+        <img src="C:\Users\Abhishek\Desktop\sorry\reo2.jpg.jpg" alt="Reo in blue saree">
+      </div>
+
+      <p>
+        I messed up. I hurt the person I love the most — <strong>you, Reo</strong>.<br>
+        Please forgive me. My world feels empty without your smile.<br><br>
+        I promise to learn, to grow, and to never repeat my mistake.<br>
+        Just give me one more chance to make you happy again.
+      </p>
+
+      <p><strong>Forever Yours Friend, Abhishek 💖</strong></p>
+      <button onclick="alert('Reo, I love you more than words can say ❤️')">Forgive Me?</button>
+    </div>
+  </div>
+</body>
+</html>
